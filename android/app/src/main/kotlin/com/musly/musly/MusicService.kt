@@ -183,7 +183,13 @@ class MusicService : MediaBrowserServiceCompat() {
         clientUid: Int,
         rootHints: Bundle?
     ): BrowserRoot {
-        return BrowserRoot(MEDIA_ID_ROOT, null)
+        // Advertise search capability via BrowserRoot extras.
+        // Android Auto reads these extras (in addition to the manifest metadata)
+        // to decide whether to show the search lens on the browse screen.
+        val extras = Bundle().apply {
+            putBoolean("android.media.browse.SEARCH_SUPPORTED", true)
+        }
+        return BrowserRoot(MEDIA_ID_ROOT, extras)
     }
 
     override fun onSearch(
