@@ -340,7 +340,7 @@
   },
   "retry": "Tentar Novamente",
   "@retry": {
-    "description": "Retry button label"
+    "description": "Button to retry a failed server connection"
   },
   "noResults": "Sem resultados",
   "@noResults": {
@@ -1469,5 +1469,32 @@
   "noArtwork": "Sem Capa",
   "@noArtwork": {
     "description": "Placeholder label shown in the player when a song has no cover art"
+  },
+  "@internetRadio": {
+    "description": "Subtitle shown in the mini player and player bar when a radio station is playing"
+  },
+  "@sectionAutoDj": {
+    "description": "Playback settings section header for Auto DJ"
+  },
+  "@sectionStreamingQuality": {
+    "description": "Playback settings section header for transcoding / streaming quality"
+  },
+  "@replayGainMode": {
+    "description": "Label for the ReplayGain mode selector"
+  },
+  "@sectionCacheSettings": {
+    "description": "Storage settings section header"
+  },
+  "@sectionCacheCleanup": {
+    "description": "Storage settings section header for cache cleanup"
+  },
+  "@sectionOfflineDownloads": {
+    "description": "Storage settings section header for offline downloads"
+  },
+  "@sectionBpmAnalysis": {
+    "description": "Storage settings section header for BPM analysis"
+  },
+  "@clearAllCache": {
+    "description": "Button to clear all cached data"
   }
 }

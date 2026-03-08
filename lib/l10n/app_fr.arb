@@ -340,7 +340,7 @@
   },
   "retry": "Réessayer",
   "@retry": {
-    "description": "Retry button label"
+    "description": "Button to retry a failed server connection"
   },
   "noResults": "Aucun résultat",
   "@noResults": {
@@ -570,6 +570,8 @@
   "tryDifferentSearch": "Essayez une recherche différente",
   "noSuggestions": "Aucune suggestion",
   "browseCategories": "Parcourir les catégories",
+  "liveSearchSection": "Rechercher",
+  "liveSearchSubtitle": "Mettre à jour les résultats lorsque vous écrivez au lieu d'afficher une liste déroulante",
   "categoryMadeForYou": "Fait pour vous",
   "categoryNewReleases": "Nouvelles sorties",
   "categoryTopRated": "Les mieux notés",
@@ -1466,5 +1468,44 @@
   "noArtwork": "Pas de pochette d'album",
   "@noArtwork": {
     "description": "Placeholder label shown in the player when a song has no cover art"
+  },
+  "serverUnreachableTitle": "Impossible d'atteindre le serveur",
+  "@serverUnreachableTitle": {
+    "description": "Title on the server-unreachable screen"
+  },
+  "serverUnreachableSubtitle": "Vérifier votre connexion ou vos paramètres de serveur.",
+  "@serverUnreachableSubtitle": {
+    "description": "Subtitle on the server-unreachable screen"
+  },
+  "openOfflineMode": "Ouvrir en mode hors connexion",
+  "@openOfflineMode": {
+    "description": "Button to enter offline mode from the server-unreachable screen"
+  },
+  "@internetRadio": {
+    "description": "Subtitle shown in the mini player and player bar when a radio station is playing"
+  },
+  "@sectionAutoDj": {
+    "description": "Playback settings section header for Auto DJ"
+  },
+  "@sectionStreamingQuality": {
+    "description": "Playback settings section header for transcoding / streaming quality"
+  },
+  "@replayGainMode": {
+    "description": "Label for the ReplayGain mode selector"
+  },
+  "@sectionCacheSettings": {
+    "description": "Storage settings section header"
+  },
+  "@sectionCacheCleanup": {
+    "description": "Storage settings section header for cache cleanup"
+  },
+  "@sectionOfflineDownloads": {
+    "description": "Storage settings section header for offline downloads"
+  },
+  "@sectionBpmAnalysis": {
+    "description": "Storage settings section header for BPM analysis"
+  },
+  "@clearAllCache": {
+    "description": "Button to clear all cached data"
   }
 }
