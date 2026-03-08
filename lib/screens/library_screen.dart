@@ -759,6 +759,7 @@ class _SettingsSheet extends StatelessWidget {
               title: Text(AppLocalizations.of(context)!.logout),
               onTap: () async {
                 Navigator.pop(context);
+                await Provider.of<PlayerProvider>(context, listen: false).stop();
                 await authProvider.logout();
               },
             ),

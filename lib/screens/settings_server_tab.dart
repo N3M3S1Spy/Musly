@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../l10n/app_localizations.dart';
 import '../models/music_folder.dart';
 import '../providers/auth_provider.dart';
+import '../providers/player_provider.dart';
 import '../services/jukebox_service.dart';
 import '../services/subsonic_service.dart';
 import '../theme/app_theme.dart';
@@ -326,6 +327,7 @@ class _SettingsServerTabState extends State<SettingsServerTab> {
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
+                  Provider.of<PlayerProvider>(context, listen: false).stop();
                   Provider.of<AuthProvider>(context, listen: false).logout();
                 },
                 child: Text(
