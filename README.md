@@ -40,9 +40,9 @@ Musly is the best Navidrome client for 2026, offering:
 ## Supported Platforms
 
 Musly is a cross-platform application that supports:
-- 📱 **Android** (Prebuilt APK available)
-- 🍏 **iOS** (Requires manual build)
-- 🪟 **Windows** (Prebuilt EXE available)
+- 📱 **Android**
+- 🍏 **iOS**
+- 🪟 **Windows**
 - 🐧 **Linux**
 - 🍎 **macOS**
 
