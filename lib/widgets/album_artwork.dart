@@ -103,19 +103,19 @@ class AlbumArtwork extends StatelessWidget {
     Offset offset;
     switch (shadowLevel) {
       case 'medium':
-        opacity = isDark ? 0.35 : 0.25;
-        blur = size / 6;
-        offset = Offset(0, size / 20);
+        opacity = isDark ? 0.4 : 0.2;
+        blur = size / 5;
+        offset = Offset(0, size / 15);
         break;
       case 'strong':
-        opacity = isDark ? 0.55 : 0.40;
-        blur = size / 4;
-        offset = Offset(0, size / 12);
+        opacity = isDark ? 0.6 : 0.35;
+        blur = size / 3;
+        offset = Offset(0, size / 10);
         break;
       default: 
-        opacity = isDark ? 0.22 : 0.14;
-        blur = size / 10;
-        offset = Offset(0, size / 30);
+        opacity = isDark ? 0.25 : 0.12;
+        blur = size / 8;
+        offset = Offset(0, size / 20);
     }
     return BoxShadow(
       color: color.withValues(alpha: opacity),
@@ -133,7 +133,7 @@ class AlbumArtwork extends StatelessWidget {
     final validSize = size.isFinite && !size.isNaN ? size : 150.0;
 
     final dpr = MediaQuery.devicePixelRatioOf(context);
-    final cacheSize = (validSize * dpr).toInt().clamp(200, 800);
+    final cacheSize = (validSize * dpr).toInt().clamp(300, 1200);
 
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final resolvedShadow = _resolvedShadow(
@@ -164,7 +164,10 @@ class AlbumArtwork extends StatelessWidget {
       height: validSize,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(resolvedRadius),
-        
+        border: Border.all(
+          color: isDark ? Colors.white.withValues(alpha: 0.1) : Colors.black.withValues(alpha: 0.05),
+          width: 0.5,
+        ),
         boxShadow: resolvedShadow != null && validSize > 60
             ? [resolvedShadow]
             : null,
