@@ -482,14 +482,14 @@ class AppLocalizationsIt extends AppLocalizations {
   String get browseCategories => 'Esplora le categorie';
 
   @override
-  String get liveSearchSection => 'Search';
+  String get liveSearchSection => 'Ricerca';
 
   @override
-  String get liveSearch => 'Live Search';
+  String get liveSearch => 'Ricerca Live';
 
   @override
   String get liveSearchSubtitle =>
-      'Update results as you type instead of showing a dropdown';
+      'Aggiorna i risultati mentre digiti invece di mostrare un menu a tendina';
 
   @override
   String get categoryMadeForYou => 'Fatte Per Te';
@@ -1301,67 +1301,68 @@ class AppLocalizationsIt extends AppLocalizations {
   String get noArtwork => 'Nessuna copertina';
 
   @override
-  String get serverUnreachableTitle => 'Cannot reach server';
+  String get serverUnreachableTitle => 'Impossibile raggiungere il server';
 
   @override
   String get serverUnreachableSubtitle =>
-      'Check your connection or server settings.';
+      'Controllare la connessione o le impostazioni del server.';
 
   @override
-  String get openOfflineMode => 'Open in offline mode';
+  String get openOfflineMode => 'Apri in modalità offline';
 
   @override
-  String get appearanceSection => 'Appearance';
+  String get appearanceSection => 'Aspetto';
 
   @override
-  String get themeLabel => 'Theme';
+  String get themeLabel => 'Tema';
 
   @override
-  String get accentColorLabel => 'Accent color';
+  String get accentColorLabel => 'Tema colore';
 
   @override
-  String get circularDesignLabel => 'Circular Design';
+  String get circularDesignLabel => 'Design Circolare';
 
   @override
   String get circularDesignSubtitle =>
-      'Floating, rounded UI with translucent panels and glass-blur effect on the player and navigation bar.';
+      'UI galleggiante e arrotondata con pannelli traslucidi ed effetto sfocatura di vetro sul lettore e sulla barra di navigazione.';
 
   @override
-  String get themeModeSystem => 'System';
+  String get themeModeSystem => 'Sistema';
 
   @override
-  String get themeModeLight => 'Light';
+  String get themeModeLight => 'Chiaro';
 
   @override
-  String get themeModeDark => 'Dark';
+  String get themeModeDark => 'Scuro';
 
   @override
   String get liveLabel => 'LIVE';
 
   @override
-  String get discordStatusText => 'Discord status text';
+  String get discordStatusText => 'Stato di Discord';
 
   @override
   String get discordStatusTextSubtitle =>
-      'Second line shown in Discord activity';
+      'Seconda riga mostrata nell\'attività di Discord';
 
   @override
-  String get discordRpcStyleArtist => 'Artist name';
+  String get discordRpcStyleArtist => 'Nome artista';
 
   @override
-  String get discordRpcStyleSong => 'Song title';
+  String get discordRpcStyleSong => 'Titolo del brano';
 
   @override
-  String get discordRpcStyleApp => 'App name (Musly)';
+  String get discordRpcStyleApp => 'Nome app (Musly)';
 
   @override
-  String get sectionVolumeNormalization => 'VOLUME NORMALIZATION (REPLAYGAIN)';
+  String get sectionVolumeNormalization =>
+      'NORMALIZZAZIONE VOLUME (REPLAYGAIN)';
 
   @override
   String get replayGainModeOff => 'Off';
 
   @override
-  String get replayGainModeTrack => 'Track';
+  String get replayGainModeTrack => 'Traccia';
 
   @override
   String get replayGainModeAlbum => 'Album';
@@ -1372,120 +1373,122 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get replayGainPreventClipping => 'Prevent Clipping';
+  String get replayGainPreventClipping => 'Previeni Il Clipping';
 
   @override
   String replayGainFallbackGain(String value) {
-    return 'Fallback Gain: $value dB';
+    return 'Guadagno Fallback: $value dB';
   }
 
   @override
   String autoDjSongsToAdd(int count) {
-    return 'Songs to Add: $count';
+    return 'Brani da aggiungere: $count';
   }
 
   @override
-  String get transcodingEnable => 'Enable Transcoding';
+  String get transcodingEnable => 'Abilita La Transcodifica';
 
   @override
   String get transcodingEnableSubtitle =>
-      'Reduce data usage with lower quality';
+      'Riduce l\'utilizzo dei dati con qualità inferiore';
 
   @override
-  String get smartTranscoding => 'Smart Transcoding';
+  String get smartTranscoding => 'Trascodifica Intelligente';
 
   @override
   String get smartTranscodingSubtitle =>
-      'Automatically adjusts quality based on your connection (WiFi vs mobile data)';
+      'Regola automaticamente la qualità in base alla tua connessione (WiFi vs dati mobili)';
 
   @override
-  String get smartTranscodingDetectedNetwork => 'Detected network: ';
+  String get smartTranscodingDetectedNetwork => 'Rete rilevata: ';
 
   @override
   String smartTranscodingActiveBitrate(String bitrate) {
-    return 'Active bitrate: $bitrate';
+    return 'Bitrate attivo $bitrate';
   }
 
   @override
-  String get transcodingWifiQuality => 'WiFi Quality';
+  String get transcodingWifiQuality => 'Qualità WiFi';
 
   @override
   String get transcodingWifiQualitySubtitleSmart =>
-      'Used automatically on WiFi';
+      'Usato automaticamente su WiFi';
 
   @override
-  String get transcodingWifiQualitySubtitle => 'Bitrate when on WiFi';
+  String get transcodingWifiQualitySubtitle => 'Bitrate quando su WiFi';
 
   @override
-  String get transcodingMobileQuality => 'Mobile Quality';
+  String get transcodingMobileQuality => 'Qualità Mobile';
 
   @override
   String get transcodingMobileQualitySubtitleSmart =>
-      'Used automatically on cellular data';
+      'Utilizzato automaticamente su dati cellulari';
 
   @override
-  String get transcodingMobileQualitySubtitle => 'Bitrate when on mobile data';
+  String get transcodingMobileQualitySubtitle =>
+      'Bitrate quando su dati mobili';
 
   @override
-  String get transcodingFormat => 'Format';
+  String get transcodingFormat => 'Formato';
 
   @override
-  String get transcodingFormatSubtitle => 'Audio codec used for streaming';
+  String get transcodingFormatSubtitle =>
+      'Codec audio utilizzato per lo streaming';
 
   @override
-  String get transcodingBitrateOriginal => 'Original (No Transcoding)';
+  String get transcodingBitrateOriginal => 'Originale (Nessuna Transcodifica)';
 
   @override
-  String get transcodingFormatOriginal => 'Original';
+  String get transcodingFormatOriginal => 'Originale';
 
   @override
-  String get imageCacheTitle => 'Image Cache';
+  String get imageCacheTitle => 'Cache immagini';
 
   @override
-  String get imageCacheSubtitle => 'Save album covers locally';
+  String get imageCacheSubtitle => 'Salva localmente le copertine degli album';
 
   @override
-  String get musicCacheTitle => 'Music Cache';
+  String get musicCacheTitle => 'Cache Della Musica';
 
   @override
-  String get musicCacheSubtitle => 'Save song metadata locally';
+  String get musicCacheSubtitle => 'Salva i metadati del brano localmente';
 
   @override
-  String get bpmCacheTitle => 'BPM Cache';
+  String get bpmCacheTitle => 'Cache BPM';
 
   @override
-  String get bpmCacheSubtitle => 'Save BPM analysis locally';
+  String get bpmCacheSubtitle => 'Salva analisi BPM localmente';
 
   @override
-  String get sectionAboutInformation => 'INFORMATION';
+  String get sectionAboutInformation => 'INFORMAZIONI';
 
   @override
-  String get sectionAboutDeveloper => 'DEVELOPER';
+  String get sectionAboutDeveloper => 'SVILUPPATORE';
 
   @override
   String get sectionAboutLinks => 'LINKS';
 
   @override
-  String get aboutVersion => 'Version';
+  String get aboutVersion => 'Versione';
 
   @override
-  String get aboutPlatform => 'Platform';
+  String get aboutPlatform => 'Piattaforma';
 
   @override
-  String get aboutMadeBy => 'Made by dddevid';
+  String get aboutMadeBy => 'Realizzato da dddevid';
 
   @override
-  String get aboutGitHub => 'github.com/dddevid';
+  String get aboutGitHub => 'github.com/ddddevid';
 
   @override
-  String get aboutLinkGitHub => 'GitHub Repository';
+  String get aboutLinkGitHub => 'Repository GitHub';
 
   @override
   String get aboutLinkChangelog => 'Changelog';
 
   @override
-  String get aboutLinkReportIssue => 'Report Issue';
+  String get aboutLinkReportIssue => 'Segnala un problema';
 
   @override
-  String get aboutLinkDiscord => 'Join Discord Community';
+  String get aboutLinkDiscord => 'Unisciti Alla Community Di Discord';
 }

@@ -29,6 +29,8 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
   bool _isSelecting = false;
   final Set<int> _selectedIndices = {};
 
+  bool _isReordering = false;
+
   @override
   void initState() {
     super.initState();
@@ -53,6 +55,69 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
       if (mounted) {
         setState(() => _isLoading = false);
       }
+    }
+  }
+
+  void _toggleReorderMode() {
+    setState(() {
+      _isReordering = !_isReordering;
+      if (_isReordering) {
+        _isSelecting = false;
+      }
+    });
+  }
+
+  Future<void> _onReorder(int oldIndex, int newIndex) async {
+    if (newIndex > oldIndex) {
+      newIndex -= 1;
+    }
+    if (oldIndex == newIndex) return;
+
+    setState(() {
+      final songs = List<Song>.from(_playlist!.songs!);
+      final item = songs.removeAt(oldIndex);
+      songs.insert(newIndex, item);
+      _playlist = _playlist!.copyWith(songs: songs);
+    });
+
+    await _savePlaylistOrder();
+  }
+
+  Future<void> _savePlaylistOrder() async {
+    if (_playlist?.songs == null) return;
+
+    final subsonicService = Provider.of<SubsonicService>(
+      context,
+      listen: false,
+    );
+
+    try {
+      final songIds = _playlist!.songs!.map((s) => s.id).toList();
+      
+      // To reorder in Subsonic, we remove all existing songs and add them back in new order
+      // This is the most compatible way across different Subsonic servers
+      final allIndices = List.generate(
+        (_playlist!.songs!.length),
+        (index) => index,
+      );
+
+      await subsonicService.updatePlaylist(
+        playlistId: widget.playlistId,
+        songIndexesToRemove: allIndices,
+        songIdsToAdd: songIds,
+      );
+      
+      // After adding back, the indices changed on server, 
+      // but since we replaced everything, our local state is now in sync.
+      
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error saving order: $e')),
+        );
+      }
+      // Revert UI on error? Maybe reload
+      _loadPlaylist();
     }
   }
 
@@ -273,11 +338,18 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
       appBar: AppBar(
         title: _isSelecting
             ? Text('${_selectedIndices.length} selected')
-            : Text(_playlist!.name),
-        leading: _isSelecting
+            : _isReordering
+                ? const Text('Reorder Songs')
+                : Text(_playlist!.name),
+        leading: _isSelecting || _isReordering
             ? IconButton(
                 icon: const Icon(CupertinoIcons.xmark),
-                onPressed: _toggleSelectMode,
+                onPressed: () {
+                  setState(() {
+                    _isSelecting = false;
+                    _isReordering = false;
+                  });
+                },
               )
             : null,
         actions: [
@@ -285,7 +357,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
             IconButton(
               tooltip: _selectedIndices.length == (_playlist?.songs?.length ?? 0)
                   ? 'Deselect all'
-                  : 'Select all',
+                  : 'Select all' ,
               icon: Icon(
                 _selectedIndices.length == (_playlist?.songs?.length ?? 0)
                     ? CupertinoIcons.checkmark_square
@@ -299,7 +371,14 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               color: _selectedIndices.isNotEmpty ? Colors.red : null,
               onPressed: _selectedIndices.isNotEmpty ? _removeSelected : null,
             ),
+          ] else if (_isReordering) ...[
+            // No extra actions needed in reorder mode
           ] else ...[
+            IconButton(
+              tooltip: 'Reorder songs',
+              icon: const Icon(CupertinoIcons.arrow_up_down),
+              onPressed: _toggleReorderMode,
+            ),
             IconButton(
               tooltip: 'Select songs',
               icon: const Icon(CupertinoIcons.checkmark_circle),
@@ -399,14 +478,42 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                       ),
                     ),
                   )
-                : ListView.builder(
+                : ReorderableListView.builder(
+                    onReorder: _onReorder,
+                    buildDefaultDragHandles: false,
                     padding: const EdgeInsets.only(bottom: 150),
                     itemCount: _playlist!.songs!.length,
                     itemBuilder: (context, index) {
                       final song = _playlist!.songs![index];
                       final isSelected = _selectedIndices.contains(index);
 
+                      if (_isReordering) {
+                        return ListTile(
+                          key: ValueKey('reorder_${song.id}_$index'),
+                          leading: AlbumArtwork(
+                            coverArt: song.coverArt,
+                            size: 40,
+                            borderRadius: 4,
+                          ),
+                          title: Text(
+                            song.title,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          subtitle: Text(
+                            song.artist ?? '',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          trailing: ReorderableDragStartListener(
+                            index: index,
+                            child: const Icon(CupertinoIcons.line_horizontal_3),
+                          ),
+                        );
+                      }
+
                       final tile = SongTile(
+                        key: ValueKey('tile_${song.id}_$index'),
                         song: song,
                         playlist: _playlist!.songs,
                         index: index,

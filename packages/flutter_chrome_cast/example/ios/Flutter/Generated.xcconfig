@@ -1,6 +1,6 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/Users/devid/Flutter/flutter
-FLUTTER_APPLICATION_PATH=/Users/devid/Downloads/Musly/packages/flutter_chrome_cast/example
+FLUTTER_ROOT=/home/user/.local/share/flutter/flutter
+FLUTTER_APPLICATION_PATH=/home/user/coding/Musly/packages/flutter_chrome_cast/example
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_TARGET=lib/main.dart
 FLUTTER_BUILD_DIR=build

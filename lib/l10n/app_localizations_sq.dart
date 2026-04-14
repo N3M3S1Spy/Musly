@@ -61,178 +61,178 @@ class AppLocalizationsSq extends AppLocalizations {
   String get errorLoadingAlbums => 'Gabim gjatë ngarkimit të albumeve';
 
   @override
-  String get noTopRatedAlbums => 'No top rated albums';
+  String get noTopRatedAlbums => 'Asnjë album me vlerësim të lartë.';
 
   @override
-  String get login => 'Login';
+  String get login => 'Hyr në llogari';
 
   @override
-  String get serverUrl => 'Server URL';
+  String get serverUrl => 'URL-ja e serverit';
 
   @override
-  String get username => 'Username';
+  String get username => 'Emri i përdoruesit';
 
   @override
   String get password => 'Password';
 
   @override
-  String get selectCertificate => 'Select TLS/SSL Certificate';
+  String get selectCertificate => 'Zgjidhni certifikatën TLS/SSL';
 
   @override
   String failedToSelectCertificate(String error) {
-    return 'Failed to select certificate: $error';
+    return 'Dështoi zgjedhja e certifikatës: $error';
   }
 
   @override
   String get serverUrlMustStartWith =>
-      'Server URL must start with http:// or https://';
+      'URL-ja e serverit duhet të fillojë me http:// ose https://';
 
   @override
-  String get failedToConnect => 'Failed to connect';
+  String get failedToConnect => 'Lidhja dështoi';
 
   @override
-  String get library => 'Library';
+  String get library => 'Biblioteka';
 
   @override
-  String get search => 'Search';
+  String get search => 'Kërko';
 
   @override
-  String get settings => 'Settings';
+  String get settings => 'Cilësimet';
 
   @override
-  String get albums => 'Albums';
+  String get albums => 'Albume';
 
   @override
-  String get artists => 'Artists';
+  String get artists => 'Artistët';
 
   @override
-  String get songs => 'Songs';
+  String get songs => 'Këngët';
 
   @override
-  String get playlists => 'Playlists';
+  String get playlists => 'Listat e dëgjimit';
 
   @override
-  String get genres => 'Genres';
+  String get genres => 'Zhanret';
 
   @override
-  String get favorites => 'Favorites';
+  String get favorites => 'Të preferuarat';
 
   @override
-  String get nowPlaying => 'Now Playing';
+  String get nowPlaying => 'Tani duke u luajtur';
 
   @override
-  String get queue => 'Queue';
+  String get queue => 'Radha';
 
   @override
-  String get lyrics => 'Lyrics';
+  String get lyrics => 'Tekstet e këngës';
 
   @override
-  String get play => 'Play';
+  String get play => 'Luaj';
 
   @override
-  String get pause => 'Pause';
+  String get pause => 'Pauzë';
 
   @override
-  String get next => 'Next';
+  String get next => 'Tjetra';
 
   @override
-  String get previous => 'Previous';
+  String get previous => 'E mëparshmja';
 
   @override
-  String get shuffle => 'Shuffle';
+  String get shuffle => 'Përzje';
 
   @override
-  String get repeat => 'Repeat';
+  String get repeat => 'Përsërit';
 
   @override
-  String get repeatOne => 'Repeat One';
+  String get repeatOne => 'Përsërit njërën';
 
   @override
-  String get repeatOff => 'Repeat Off';
+  String get repeatOff => 'Çaktivizo përsëritjen';
 
   @override
-  String get addToPlaylist => 'Add to Playlist';
+  String get addToPlaylist => 'Shto në listën e dëgjimit';
 
   @override
-  String get removeFromPlaylist => 'Remove from Playlist';
+  String get removeFromPlaylist => 'Hiqe nga lista e dëgjimit';
 
   @override
-  String get addToFavorites => 'Add to Favorites';
+  String get addToFavorites => 'Shto tek të preferuarat';
 
   @override
-  String get removeFromFavorites => 'Remove from Favorites';
+  String get removeFromFavorites => 'Hiqe nga të preferuarat';
 
   @override
-  String get download => 'Download';
+  String get download => 'Shkarko';
 
   @override
-  String get delete => 'Delete';
+  String get delete => 'Fshi';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'Anulo';
 
   @override
-  String get ok => 'OK';
+  String get ok => 'Në rregull.';
 
   @override
-  String get save => 'Save';
+  String get save => 'Ruaj';
 
   @override
-  String get close => 'Close';
+  String get close => 'Mbyll';
 
   @override
-  String get general => 'General';
+  String get general => 'Përgjithshme';
 
   @override
-  String get appearance => 'Appearance';
+  String get appearance => 'Pamja';
 
   @override
-  String get playback => 'Playback';
+  String get playback => 'Riprodhimi';
 
   @override
-  String get storage => 'Storage';
+  String get storage => 'Hapësira e ruajtjes';
 
   @override
-  String get about => 'About';
+  String get about => 'Rreth';
 
   @override
-  String get darkMode => 'Dark Mode';
+  String get darkMode => 'Mënyra e errët';
 
   @override
-  String get language => 'Language';
+  String get language => 'Gjuha';
 
   @override
-  String get version => 'Version';
+  String get version => 'Versioni';
 
   @override
-  String get madeBy => 'Made by dddevid';
+  String get madeBy => 'Krijuar nga dddevid';
 
   @override
-  String get githubRepository => 'GitHub Repository';
+  String get githubRepository => 'Depoja në GitHub';
 
   @override
-  String get reportIssue => 'Report Issue';
+  String get reportIssue => 'Raporto një problem';
 
   @override
-  String get joinDiscord => 'Join Discord Community';
+  String get joinDiscord => 'Bashkohu në komunitetin Discord';
 
   @override
-  String get unknownArtist => 'Unknown Artist';
+  String get unknownArtist => 'Artist i panjohur';
 
   @override
-  String get unknownAlbum => 'Unknown Album';
+  String get unknownAlbum => 'Album i panjohur';
 
   @override
-  String get playAll => 'Play All';
+  String get playAll => 'Riprodhi të gjitha';
 
   @override
-  String get shuffleAll => 'Shuffle All';
+  String get shuffleAll => 'Përziej të gjitha';
 
   @override
-  String get sortBy => 'Sort by';
+  String get sortBy => 'Rendit sipas';
 
   @override
-  String get sortByName => 'Name';
+  String get sortByName => 'Emri';
 
   @override
   String get sortByArtist => 'Artist';
@@ -241,47 +241,47 @@ class AppLocalizationsSq extends AppLocalizations {
   String get sortByAlbum => 'Album';
 
   @override
-  String get sortByDate => 'Date';
+  String get sortByDate => 'Data';
 
   @override
-  String get sortByDuration => 'Duration';
+  String get sortByDuration => 'Kohëzgjatja';
 
   @override
-  String get ascending => 'Ascending';
+  String get ascending => 'Rritëse';
 
   @override
-  String get descending => 'Descending';
+  String get descending => 'Zbritëse';
 
   @override
-  String get noLyricsAvailable => 'No lyrics available';
+  String get noLyricsAvailable => 'Nuk ka tekst këngësh në dispozicion';
 
   @override
-  String get loading => 'Loading...';
+  String get loading => 'Duke u ngarkuar...';
 
   @override
-  String get error => 'Error';
+  String get error => 'Gabim';
 
   @override
-  String get retry => 'Retry';
+  String get retry => 'Provo përsëri';
 
   @override
-  String get noResults => 'No results';
+  String get noResults => 'Nuk u gjet asnjë rezultat';
 
   @override
-  String get searchHint => 'Search for songs, albums, artists...';
+  String get searchHint => 'Kërko për këngë, albume, artistë...';
 
   @override
-  String get allSongs => 'All Songs';
+  String get allSongs => 'Të gjitha këngët';
 
   @override
-  String get allAlbums => 'All Albums';
+  String get allAlbums => 'Të gjithë albumet';
 
   @override
-  String get allArtists => 'All Artists';
+  String get allArtists => 'Të gjithë artistët';
 
   @override
   String trackNumber(int number) {
-    return 'Track $number';
+    return 'Kënga $number';
   }
 
   @override
@@ -289,9 +289,9 @@ class AppLocalizationsSq extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count songs',
-      one: '1 song',
-      zero: 'No songs',
+      other: '$count këngë',
+      one: '1 këngë',
+      zero: 'Asnjë këngë',
     );
     return '$_temp0';
   }
@@ -301,27 +301,27 @@ class AppLocalizationsSq extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count albums',
+      other: '$count albume',
       one: '1 album',
-      zero: 'No albums',
+      zero: 'Asnjë album',
     );
     return '$_temp0';
   }
 
   @override
-  String get logout => 'Logout';
+  String get logout => 'Çlogohu';
 
   @override
-  String get confirmLogout => 'Are you sure you want to logout?';
+  String get confirmLogout => 'A jeni të sigurt që dëshironi të çlogoheni?';
 
   @override
-  String get yes => 'Yes';
+  String get yes => 'Po';
 
   @override
-  String get no => 'No';
+  String get no => 'Jo';
 
   @override
-  String get offlineMode => 'Offline Mode';
+  String get offlineMode => 'Mënyra pa internet';
 
   @override
   String get radio => 'Radio';
@@ -330,347 +330,352 @@ class AppLocalizationsSq extends AppLocalizations {
   String get changelog => 'Changelog';
 
   @override
-  String get platform => 'Platform';
+  String get platform => 'Platforma';
 
   @override
-  String get server => 'Server';
+  String get server => 'Serveri';
 
   @override
-  String get display => 'Display';
+  String get display => 'Ekrani';
 
   @override
-  String get playerInterface => 'Player Interface';
+  String get playerInterface => 'Ndërfaqja e luajtësit';
 
   @override
-  String get smartRecommendations => 'Smart Recommendations';
+  String get smartRecommendations => 'Sugjerime inteligjente';
 
   @override
-  String get showVolumeSlider => 'Show Volume Slider';
+  String get showVolumeSlider => 'Shfaq rregulluesin e volumit';
 
   @override
   String get showVolumeSliderSubtitle =>
-      'Display volume control in Now Playing screen';
+      'Shfaq kontrollin e volumit në ekranin \"Duke u luajtur\"';
 
   @override
-  String get showStarRatings => 'Show Star Ratings';
+  String get showStarRatings => 'Shfaq vlerësimet me yje';
 
   @override
-  String get showStarRatingsSubtitle => 'Rate songs and view ratings';
+  String get showStarRatingsSubtitle =>
+      'Vlerësoni këngët dhe shikoni vlerësimet';
 
   @override
-  String get enableRecommendations => 'Enable Recommendations';
+  String get enableRecommendations => 'Aktivizo sugjerimet';
 
   @override
   String get enableRecommendationsSubtitle =>
-      'Get personalized music suggestions';
+      'Merrni sugjerime muzikore të personalizuara';
 
   @override
-  String get listeningData => 'Listening Data';
+  String get listeningData => 'Të dhënat e dëgjimit';
 
   @override
   String totalPlays(int count) {
-    return '$count total plays';
+    return '$count dëgjime gjithsej';
   }
 
   @override
-  String get clearListeningHistory => 'Clear Listening History';
+  String get clearListeningHistory => 'Pastro historikun e dëgjimit';
 
   @override
   String get confirmClearHistory =>
-      'This will reset all your listening data and recommendations. Are you sure?';
+      'Kjo do të fshijë të gjitha të dhënat tuaja të dëgjimit dhe sugjerimet. A jeni të sigurt?';
 
   @override
-  String get historyCleared => 'Listening history cleared';
+  String get historyCleared => 'Historiku i dëgjimit u fshi';
 
   @override
-  String get discordStatus => 'Discord Status';
+  String get discordStatus => 'Statusi në Discord';
 
   @override
-  String get discordStatusSubtitle => 'Show playing song on Discord profile';
+  String get discordStatusSubtitle =>
+      'Shfaq këngën që po dëgjohet në profilin e Discord';
 
   @override
-  String get selectLanguage => 'Select Language';
+  String get selectLanguage => 'Zgjidhni gjuhën';
 
   @override
-  String get systemDefault => 'System Default';
+  String get systemDefault => 'Parazgjedhja e sistemit';
 
   @override
-  String get communityTranslations => 'Translations by Community';
+  String get communityTranslations => 'Përkthimet nga komuniteti';
 
   @override
-  String get communityTranslationsSubtitle => 'Help translate Musly on Crowdin';
+  String get communityTranslationsSubtitle =>
+      'Ndihmoni në përkthimin e Musly në Crowdin';
 
   @override
-  String get yourLibrary => 'Your Library';
+  String get yourLibrary => 'Libraria juaj';
 
   @override
-  String get filterAll => 'All';
+  String get filterAll => 'Të gjitha';
 
   @override
-  String get filterPlaylists => 'Playlists';
+  String get filterPlaylists => 'Lista e këngëve';
 
   @override
-  String get filterAlbums => 'Albums';
+  String get filterAlbums => 'Albume';
 
   @override
-  String get filterArtists => 'Artists';
+  String get filterArtists => 'Artisti';
 
   @override
-  String get likedSongs => 'Liked Songs';
+  String get likedSongs => 'Këngët e pëlqyera';
 
   @override
-  String get radioStations => 'Radio Stations';
+  String get radioStations => 'Stazioni Radio';
 
   @override
   String get playlist => 'Playlist';
 
   @override
-  String get internetRadio => 'Internet Radio';
+  String get internetRadio => 'Radio Internet';
 
   @override
-  String get newPlaylist => 'New Playlist';
+  String get newPlaylist => 'Playlisti e re';
 
   @override
-  String get playlistName => 'Playlist Name';
+  String get playlistName => 'Emri i listës t\'kngve';
 
   @override
-  String get create => 'Create';
+  String get create => 'Krijo';
 
   @override
-  String get deletePlaylist => 'Delete Playlist';
+  String get deletePlaylist => 'Fshije listën t\'kngve';
 
   @override
   String deletePlaylistConfirmation(String name) {
-    return 'Are you sure you want to delete the playlist \"$name\"?';
+    return 'A jeni t\'sigurt qi doni me fshi listën e kngve \"$name\"?';
   }
 
   @override
   String playlistDeleted(String name) {
-    return 'Playlist \"$name\" deleted';
+    return 'Lista e kngve \"$name\" u fshi';
   }
 
   @override
   String errorCreatingPlaylist(Object error) {
-    return 'Error creating playlist: $error';
+    return 'Gabim gjatë krijimit t\'listës t\'kngve: $error';
   }
 
   @override
   String errorDeletingPlaylist(Object error) {
-    return 'Error deleting playlist: $error';
+    return 'Gabim gjatë fshirjes t\'listës t\'kngve: $error';
   }
 
   @override
   String playlistCreated(String name) {
-    return 'Playlist \"$name\" created';
+    return 'Lista e kngve \"$name\" u kriju';
   }
 
   @override
-  String get searchTitle => 'Search';
+  String get searchTitle => 'Kërko';
 
   @override
-  String get searchPlaceholder => 'Artists, Songs, Albums';
+  String get searchPlaceholder => 'Artistët, Kangët, Albumet';
 
   @override
-  String get tryDifferentSearch => 'Try a different search';
+  String get tryDifferentSearch => 'Provo nji kërkim tjetër';
 
   @override
-  String get noSuggestions => 'No suggestions';
+  String get noSuggestions => 'S\'ka sugjerime';
 
   @override
-  String get browseCategories => 'Browse Categories';
+  String get browseCategories => 'Shfleto Kategoritë';
 
   @override
-  String get liveSearchSection => 'Search';
+  String get liveSearchSection => 'Kërko';
 
   @override
-  String get liveSearch => 'Live Search';
+  String get liveSearch => 'Kërkim Live';
 
   @override
   String get liveSearchSubtitle =>
-      'Update results as you type instead of showing a dropdown';
+      'Përditëso rezultatet n\'kohë reale kuer t\'shkrush n\'vend se me qit nji listë t\'poshtme';
 
   @override
-  String get categoryMadeForYou => 'Made For You';
+  String get categoryMadeForYou => 'Kriju për ty';
 
   @override
-  String get categoryNewReleases => 'New Releases';
+  String get categoryNewReleases => 'Shtimet e reja';
 
   @override
-  String get categoryTopRated => 'Top Rated';
+  String get categoryTopRated => 'Më të vlerësuarat';
 
   @override
-  String get categoryGenres => 'Genres';
+  String get categoryGenres => 'Zhanret';
 
   @override
-  String get categoryFavorites => 'Favorites';
+  String get categoryFavorites => 'Të preferuarat';
 
   @override
   String get categoryRadio => 'Radio';
 
   @override
-  String get settingsTitle => 'Settings';
+  String get settingsTitle => 'Cilësimet';
 
   @override
-  String get tabPlayback => 'Playback';
+  String get tabPlayback => 'Riprodhimi';
 
   @override
-  String get tabStorage => 'Storage';
+  String get tabStorage => 'Magazina e të dhënave';
 
   @override
-  String get tabServer => 'Server';
+  String get tabServer => 'Serveri';
 
   @override
-  String get tabDisplay => 'Display';
+  String get tabDisplay => 'Ekrani';
 
   @override
-  String get tabAbout => 'About';
+  String get tabAbout => 'Rreth';
 
   @override
   String get sectionAutoDj => 'AUTO DJ';
 
   @override
-  String get autoDjMode => 'Auto DJ Mode';
+  String get autoDjMode => 'Mënyra Auto DJ';
 
   @override
   String songsToAdd(int count) {
-    return 'Songs to Add: $count';
+    return 'Këngë për t\'u shtuar: $count';
   }
 
   @override
-  String get sectionReplayGain => 'VOLUME NORMALIZATION (REPLAYGAIN)';
+  String get sectionReplayGain => 'NORMALIZIMI I VOLUMIT (REPLAYGAIN)';
 
   @override
-  String get replayGainMode => 'Mode';
+  String get replayGainMode => 'Mënyra';
 
   @override
   String preamp(String value) {
-    return 'Preamp: $value dB';
+    return 'Parapërforcimi: $value dB';
   }
 
   @override
-  String get preventClipping => 'Prevent Clipping';
+  String get preventClipping => 'Parandalo Shformimin (Clipping)';
 
   @override
   String fallbackGain(String value) {
-    return 'Fallback Gain: $value dB';
+    return 'Përforcimi i Rezervës (Fallback Gain): $value dB';
   }
 
   @override
-  String get sectionStreamingQuality => 'STREAMING QUALITY';
+  String get sectionStreamingQuality => 'CILËSIA E STRIMIMIT';
 
   @override
-  String get enableTranscoding => 'Enable Transcoding';
+  String get enableTranscoding => 'Aktivizo Transkodimin';
 
   @override
-  String get qualityWifi => 'WiFi Quality';
+  String get qualityWifi => 'Cilësia në WiFi';
 
   @override
-  String get qualityMobile => 'Mobile Quality';
+  String get qualityMobile => 'Cilësia në Rrjetin Celular';
 
   @override
-  String get format => 'Format';
+  String get format => 'Formati';
 
   @override
-  String get transcodingSubtitle => 'Reduce data usage with lower quality';
+  String get transcodingSubtitle =>
+      'Redukto përdorimin e të dhënave me cilësi më të ulët';
 
   @override
-  String get modeOff => 'Off';
+  String get modeOff => 'Joaktivizuar';
 
   @override
-  String get modeTrack => 'Track';
+  String get modeTrack => 'Kënga';
 
   @override
   String get modeAlbum => 'Album';
 
   @override
-  String get sectionServerConnection => 'SERVER CONNECTION';
+  String get sectionServerConnection => 'LIDHJA ME SERVERIN';
 
   @override
-  String get serverType => 'Server Type';
+  String get serverType => 'Lloji i Serverit';
 
   @override
-  String get notConnected => 'Not connected';
+  String get notConnected => 'Nuk është lidhur';
 
   @override
-  String get unknown => 'Unknown';
+  String get unknown => 'I panjohur';
 
   @override
-  String get sectionMusicFolders => 'MUSIC FOLDERS';
+  String get sectionMusicFolders => 'DOSJET E MUZIKËS';
 
   @override
-  String get musicFolders => 'Music Folders';
+  String get musicFolders => 'Dosjet e Muzikës';
 
   @override
-  String get noMusicFolders => 'No music folders found';
+  String get noMusicFolders => 'Nuk u gjet asnjë dosje muzike';
 
   @override
-  String get sectionAccount => 'ACCOUNT';
+  String get sectionAccount => 'LLOGARIA';
 
   @override
   String get logoutConfirmation =>
-      'Are you sure you want to logout? This will also clear all cached data.';
+      'A jeni të sigurt që dëshironi të shkëputeni? Kjo do të fshijë gjithashtu të gjitha të dhënat e ruajtura (cache).';
 
   @override
-  String get sectionCacheSettings => 'CACHE SETTINGS';
+  String get sectionCacheSettings => 'PARAMETRAT E CACHE';
 
   @override
-  String get imageCache => 'Image Cache';
+  String get imageCache => 'Cache i imazheve';
 
   @override
-  String get musicCache => 'Music Cache';
+  String get musicCache => 'Cache i muzikës';
 
   @override
-  String get bpmCache => 'BPM Cache';
+  String get bpmCache => 'Cache i BPM-ve';
 
   @override
-  String get saveAlbumCovers => 'Save album covers locally';
+  String get saveAlbumCovers => 'Ruaj kopertinat e albumeve në pajisje';
 
   @override
-  String get saveSongMetadata => 'Save song metadata locally';
+  String get saveSongMetadata =>
+      'Ruaj të dhënat e këngëve (metadata) në pajisje';
 
   @override
-  String get saveBpmAnalysis => 'Save BPM analysis locally';
+  String get saveBpmAnalysis => 'Ruaj analizën e BPM-ve në pajisje';
 
   @override
-  String get sectionCacheCleanup => 'CACHE CLEANUP';
+  String get sectionCacheCleanup => 'PASTRIMI I CACHE';
 
   @override
-  String get clearAllCache => 'Clear All Cache';
+  String get clearAllCache => 'Pastro të gjithë Cache-in';
 
   @override
-  String get allCacheCleared => 'All cache cleared';
+  String get allCacheCleared => 'Gjithë cache-i u pastrua';
 
   @override
-  String get sectionOfflineDownloads => 'OFFLINE DOWNLOADS';
+  String get sectionOfflineDownloads => 'SHKARKIMET OFFLINE';
 
   @override
-  String get downloadedSongs => 'Downloaded Songs';
+  String get downloadedSongs => 'Këngët e shkarkuara';
 
   @override
   String downloadingLibrary(int progress, int total) {
-    return 'Downloading Library... $progress/$total';
+    return 'Duke shkarkuar bibliotekën... $progress/$total';
   }
 
   @override
-  String get downloadAllLibrary => 'Download All Library';
+  String get downloadAllLibrary => 'Shkarko të gjithë bibliotekën';
 
   @override
   String downloadLibraryConfirm(int count) {
-    return 'This will download $count songs to your device. This may take a while and use significant storage space.\n\nContinue?';
+    return 'Kjo do të shkarkojë $count këngë në pajisjen tuaj. Kjo mund të marrë pak kohë dhe të përdorë hapësirë të konsiderueshme ruajtjeje.\n\nVazhdo?';
   }
 
   @override
-  String get libraryDownloadStarted => 'Library download started';
+  String get libraryDownloadStarted => 'Shkarkimi i bibliotekës filloi';
 
   @override
-  String get deleteDownloads => 'Delete All Downloads';
+  String get deleteDownloads => 'Fshi të gjitha shkarkimet';
 
   @override
-  String get downloadsDeleted => 'All downloads deleted';
+  String get downloadsDeleted => 'Të gjitha shkarkimet u fshinë';
 
   @override
   String get noSongsAvailable =>
-      'No songs available. Please load your library first.';
+      'Nuk u gjet asnjë këngë. Ju lutem ngarkoni bibliotekën tuaj fillimisht.';
 
   @override
   String get sectionBpmAnalysis => 'BPM ANALYSIS';
