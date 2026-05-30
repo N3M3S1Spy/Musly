@@ -26,6 +26,7 @@ import '../services/cast_service.dart';
 import '../services/upnp_service.dart';
 import '../services/jukebox_service.dart';
 import '../services/audio_handler.dart';
+import '../services/fade_settings_service.dart';
 import '../services/lock_screen_lyrics_service.dart';
 import '../providers/library_provider.dart';
 
@@ -94,6 +95,11 @@ class PlayerProvider extends ChangeNotifier {
   Timer? _sleepTimerFadeTimer;
   Timer? _sleepTimerFadePeriodicTimer;
   Timer? _jukeboxPollTimer;
+
+  // Fade in/out
+  final FadeSettingsService _fadeSettingsService = FadeSettingsService();
+  Timer? _fadeTimer;
+  bool _isFading = false;
 
   final JukeboxService _jukeboxService;
 
@@ -285,8 +291,7 @@ class PlayerProvider extends ChangeNotifier {
       _position = status.position;
       changed = true;
     }
-    if (status.playlist.isNotEmpty &&
-        !identical(_queue, status.playlist)) {
+    if (status.playlist.isNotEmpty && !identical(_queue, status.playlist)) {
       _queue = List.from(status.playlist);
       changed = true;
     }
@@ -365,11 +370,11 @@ class PlayerProvider extends ChangeNotifier {
     };
     _androidSystemService.onAudioFocusLossTransientCanDuck = () {
       if (isRemotePlayback) return;
-      _audioPlayer.setVolume(0.3);
+      _smoothVolumeChange(0.3);
     };
     _androidSystemService.onAudioFocusGain = () {
       if (isRemotePlayback) return;
-      _audioPlayer.setVolume(_volume);
+      _smoothVolumeChange(_volume);
     };
     _androidSystemService.onBecomingNoisy = () {
       if (isRemotePlayback) return;
@@ -1384,7 +1389,9 @@ class PlayerProvider extends ChangeNotifier {
     if (_jukeboxService.enabled) {
       final targetPlaylist = (playlist ?? [song]).toList();
       final targetIndex = startIndex ??
-          targetPlaylist.indexWhere((s) => s.id == song.id).clamp(0, targetPlaylist.length - 1);
+          targetPlaylist
+              .indexWhere((s) => s.id == song.id)
+              .clamp(0, targetPlaylist.length - 1);
       await _jukeboxService.setQueue(
         _subsonicService,
         targetPlaylist,
@@ -1545,7 +1552,8 @@ class PlayerProvider extends ChangeNotifier {
                 'First playback failed (Android 16 Media3 issue), retrying: $e',
               );
               await Future.delayed(const Duration(milliseconds: 100));
-              await _buildAndSetConcatenatingSource(initialIndex: _currentIndex);
+              await _buildAndSetConcatenatingSource(
+                  initialIndex: _currentIndex);
               _hasPlayedOnce = true;
             } else {
               rethrow;
@@ -1811,6 +1819,7 @@ class PlayerProvider extends ChangeNotifier {
       }
       await _ensureAudioFocus();
       await _audioPlayer.play();
+      await _fadeIn();
     }
   }
 
@@ -1833,7 +1842,9 @@ class PlayerProvider extends ChangeNotifier {
       notifyListeners();
       _updateAndroidAuto();
     } else {
-      await _audioPlayer.pause();
+      await _fadeOut(onComplete: () async {
+        await _audioPlayer.pause();
+      });
     }
   }
 
@@ -1851,6 +1862,103 @@ class PlayerProvider extends ChangeNotifier {
     _position = Duration.zero;
     notifyListeners();
     _updateAndroidAuto();
+  }
+
+  // ── Fade In/Out ────────────────────────────────────────────────────────────
+
+  void _stopFade() {
+    _fadeTimer?.cancel();
+    _fadeTimer = null;
+    _isFading = false;
+  }
+
+  Future<void> _fadeIn() async {
+    _stopFade();
+
+    if (!_fadeSettingsService.getFadeEnabled()) {
+      await _audioPlayer.setVolume(_volume);
+      return;
+    }
+
+    final fadeDurationMs = _fadeSettingsService.getFadeDurationMs();
+    final steps = 20;
+    final stepDurationMs = fadeDurationMs ~/ steps;
+    final volumeStep = _volume / steps;
+
+    _isFading = true;
+    await _audioPlayer.setVolume(0.0);
+
+    var currentStep = 0;
+    _fadeTimer =
+        Timer.periodic(Duration(milliseconds: stepDurationMs), (timer) async {
+      if (!_isFading || currentStep >= steps) {
+        timer.cancel();
+        _isFading = false;
+        return;
+      }
+      currentStep++;
+      final newVolume = volumeStep * currentStep;
+      await _audioPlayer.setVolume(newVolume.clamp(0.0, _volume));
+    });
+  }
+
+  Future<void> _fadeOut({VoidCallback? onComplete}) async {
+    _stopFade();
+
+    if (!_fadeSettingsService.getFadeEnabled()) {
+      await _audioPlayer.setVolume(0.0);
+      onComplete?.call();
+      return;
+    }
+
+    final fadeDurationMs = _fadeSettingsService.getFadeDurationMs();
+    final steps = 20;
+    final stepDurationMs = fadeDurationMs ~/ steps;
+    final currentVolume = _audioPlayer.volume;
+    final volumeStep = currentVolume / steps;
+
+    _isFading = true;
+
+    var currentStep = 0;
+    _fadeTimer =
+        Timer.periodic(Duration(milliseconds: stepDurationMs), (timer) async {
+      if (!_isFading || currentStep >= steps) {
+        timer.cancel();
+        _isFading = false;
+        onComplete?.call();
+        return;
+      }
+      currentStep++;
+      final newVolume = currentVolume - (volumeStep * currentStep);
+      await _audioPlayer.setVolume(newVolume.clamp(0.0, 1.0));
+    });
+  }
+
+  void _smoothVolumeChange(double targetVolume, {int durationMs = 150}) {
+    _stopFade();
+
+    final currentVolume = _audioPlayer.volume;
+    if ((currentVolume - targetVolume).abs() < 0.01) return;
+
+    final steps = 10;
+    final stepDurationMs = durationMs ~/ steps;
+    final volumeDiff = targetVolume - currentVolume;
+    final volumeStep = volumeDiff / steps;
+
+    _isFading = true;
+
+    var currentStep = 0;
+    _fadeTimer =
+        Timer.periodic(Duration(milliseconds: stepDurationMs), (timer) async {
+      if (!_isFading || currentStep >= steps) {
+        timer.cancel();
+        _isFading = false;
+        return;
+      }
+      currentStep++;
+      final newVolume = currentVolume + (volumeStep * currentStep);
+      await _audioPlayer.setVolume(newVolume.clamp(0.0, 1.0));
+    });
   }
 
   Future<void> togglePlayPause() async {
@@ -1963,7 +2071,8 @@ class PlayerProvider extends ChangeNotifier {
               final source = await _buildAudioSourceForSong(song);
               _concatenatingSource!.add(source);
             } catch (e) {
-              debugPrint('Error adding AutoDJ song to concatenating source: $e');
+              debugPrint(
+                  'Error adding AutoDJ song to concatenating source: $e');
             }
           }
         }
@@ -2124,7 +2233,8 @@ class PlayerProvider extends ChangeNotifier {
   void removeFromQueue(int index) {
     if (index >= 0 && index < _queue.length) {
       _queue.removeAt(index);
-      if (_concatenatingSource != null && index < _concatenatingSource!.length) {
+      if (_concatenatingSource != null &&
+          index < _concatenatingSource!.length) {
         try {
           _concatenatingSource!.removeAt(index);
         } catch (e) {
@@ -2269,7 +2379,8 @@ class PlayerProvider extends ChangeNotifier {
     );
   }
 
-  Future<void> _buildAndSetConcatenatingSource({required int initialIndex}) async {
+  Future<void> _buildAndSetConcatenatingSource(
+      {required int initialIndex}) async {
     final children = await Future.wait(_queue.map(_buildAudioSourceForSong));
     _concatenatingSource = ConcatenatingAudioSource(children: children);
     await _audioPlayer.setAudioSource(
@@ -2295,7 +2406,8 @@ class PlayerProvider extends ChangeNotifier {
           if (offlinePath != null) {
             playUrl = 'file://$offlinePath';
           } else {
-            playUrl = await _subsonicService.resolveStreamUrlAsync(_currentSong!);
+            playUrl =
+                await _subsonicService.resolveStreamUrlAsync(_currentSong!);
           }
         }
         if (_currentSong!.isLocal == true ||
@@ -2342,7 +2454,9 @@ class PlayerProvider extends ChangeNotifier {
     // Track completion of the previous song
     if (_currentSong != null) {
       if (_currentSong!.isLocal != true) {
-        _subsonicService.scrobble(_currentSong!.id, submission: true).catchError(
+        _subsonicService
+            .scrobble(_currentSong!.id, submission: true)
+            .catchError(
           (e) {
             _offlineService.queueScrobble(_currentSong!.id, submission: true);
           },
