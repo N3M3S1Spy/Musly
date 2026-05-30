@@ -1866,6 +1866,9 @@ class PlayerProvider extends ChangeNotifier with WidgetsBindingObserver {
       await _fadeOut(onComplete: () async {
         await _audioPlayer.pause();
       });
+      _isPlaying = false;
+      notifyListeners();
+      _updateAndroidAuto();
     }
   }
 
