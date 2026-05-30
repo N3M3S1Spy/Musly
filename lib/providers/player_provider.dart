@@ -29,6 +29,7 @@ import '../services/jukebox_service.dart';
 import '../services/audio_handler.dart';
 import '../services/fade_settings_service.dart';
 import '../services/lock_screen_lyrics_service.dart';
+import '../services/transcoding_service.dart';
 import '../providers/library_provider.dart';
 
 enum RepeatMode { off, all, one }
@@ -103,6 +104,7 @@ class PlayerProvider extends ChangeNotifier with WidgetsBindingObserver {
   bool _isFading = false;
 
   final JukeboxService _jukeboxService;
+  final TranscodingService _transcodingService;
 
   double _playbackSpeed = 1.0;
   double _pitch = 1.0;
@@ -115,6 +117,7 @@ class PlayerProvider extends ChangeNotifier with WidgetsBindingObserver {
     this._upnpService,
     this._audioHandler,
     this._jukeboxService,
+    this._transcodingService,
   ) {
     _storageService = storageService;
     _discordRpcService = DiscordRpcService(storageService);
@@ -1593,7 +1596,15 @@ class PlayerProvider extends ChangeNotifier with WidgetsBindingObserver {
             if (offlinePath != null) {
               playUrl = 'file://$offlinePath';
             } else {
-              playUrl = await _subsonicService.resolveStreamUrlAsync(song);
+              // Apply transcoding settings if enabled
+              final maxBitRate = _transcodingService.enabled
+                  ? _transcodingService.currentBitRate
+                  : null;
+              final format = _transcodingService.enabled
+                  ? _transcodingService.format
+                  : null;
+              playUrl = _subsonicService.getStreamUrl(song.id,
+                  maxBitRate: maxBitRate, format: format);
             }
           }
           // Cache remote streams locally so seeking works even when the
@@ -2388,7 +2399,13 @@ class PlayerProvider extends ChangeNotifier with WidgetsBindingObserver {
     if (offlinePath != null) {
       return AudioSource.uri(Uri.file(offlinePath));
     }
-    final url = _subsonicService.getStreamUrl(song.id);
+    // Apply transcoding settings if enabled
+    final maxBitRate =
+        _transcodingService.enabled ? _transcodingService.currentBitRate : null;
+    final format =
+        _transcodingService.enabled ? _transcodingService.format : null;
+    final url = _subsonicService.getStreamUrl(song.id,
+        maxBitRate: maxBitRate, format: format);
     // Cache remote streams locally so seeking works even when the server
     // transcodes and doesn't support HTTP range requests (issue #170).
     final cacheDir = await getTemporaryDirectory();

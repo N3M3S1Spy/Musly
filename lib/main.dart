@@ -218,6 +218,9 @@ void main() async {
   // is ready and fully decoupled from the Flutter widget lifecycle on iOS.
   final audioHandler = await initAudioService();
 
+  // Create TranscodingService instance to share across providers
+  final transcodingService = TranscodingService();
+
   final Widget appWithProviders = MultiProvider(
     providers: [
       Provider<StorageService>.value(value: storageService),
@@ -225,8 +228,8 @@ void main() async {
       ChangeNotifierProvider<RecommendationService>.value(
         value: recommendationService,
       ),
-      ChangeNotifierProvider<TranscodingService>(
-        create: (_) => TranscodingService(),
+      ChangeNotifierProvider<TranscodingService>.value(
+        value: transcodingService,
       ),
       ChangeNotifierProvider<LocalMusicService>.value(value: localMusicService),
       ChangeNotifierProvider(
@@ -248,6 +251,7 @@ void main() async {
           upnpService,
           audioHandler,
           jukeboxService,
+          transcodingService,
         ),
       ),
       ChangeNotifierProvider(create: (_) => LibraryProvider(subsonicService)),
