@@ -7,6 +7,16 @@
     "description": "Application name"
   },
 
+  "emulatorDetected": "Emulator Detected",
+  "@emulatorDetected": {
+    "description": "Title shown when the app detects it's running on an emulator"
+  },
+
+  "emulatorNotAllowed": "This app cannot run on an emulator.\\nPlease use a physical device.",
+  "@emulatorNotAllowed": {
+    "description": "Message explaining that the app requires a physical device"
+  },
+
   "goodMorning": "Good morning",
   "@goodMorning": {
     "description": "Morning greeting"

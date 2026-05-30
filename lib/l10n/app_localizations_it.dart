@@ -12,6 +12,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get appName => 'Musly';
 
   @override
+  String get emulatorDetected => 'Emulator Rilevato';
+
+  @override
+  String get emulatorNotAllowed =>
+      'Questa app non può girare su un emulator.\nUsa un dispositivo fisico.';
+
+  @override
   String get goodMorning => 'Buon giorno';
 
   @override

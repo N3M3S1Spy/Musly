@@ -153,6 +153,18 @@ abstract class AppLocalizations {
   /// **'Musly'**
   String get appName;
 
+  /// Title shown when the app detects it's running on an emulator
+  ///
+  /// In en, this message translates to:
+  /// **'Emulator Detected'**
+  String get emulatorDetected;
+
+  /// Message explaining that the app requires a physical device
+  ///
+  /// In en, this message translates to:
+  /// **'This app cannot run on an emulator.\nPlease use a physical device.'**
+  String get emulatorNotAllowed;
+
   /// Morning greeting
   ///
   /// In en, this message translates to:
