@@ -12,11 +12,11 @@ class AppLocalizationsIt extends AppLocalizations {
   String get appName => 'Musly';
 
   @override
-  String get emulatorDetected => 'Emulator Rilevato';
+  String get emulatorDetected => 'Emulator Detected';
 
   @override
   String get emulatorNotAllowed =>
-      'Questa app non può girare su un emulator.\nUsa un dispositivo fisico.';
+      'This app cannot run on an emulator.\\nPlease use a physical device.';
 
   @override
   String get goodMorning => 'Buon giorno';
@@ -44,6 +44,15 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get favoritePlaylists => 'Favorite Playlists';
+
+  @override
+  String get sectionAlbums => 'Albums';
+
+  @override
+  String get sectionEPs => 'EPs';
+
+  @override
+  String get sectionSingles => 'Singles';
 
   @override
   String get madeForYou => 'Fatte Per Te';
@@ -111,15 +120,6 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get albums => 'Album';
-
-  @override
-  String get sectionAlbums => 'Album';
-
-  @override
-  String get sectionEPs => 'EP';
-
-  @override
-  String get sectionSingles => 'Singoli';
 
   @override
   String get artists => 'Artisti';
@@ -647,21 +647,6 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get sectionStreamingQuality => 'QUALITÀ DI STREAMING';
-
-  @override
-  String get sectionFadeInOut => 'FADE IN/OUT';
-
-  @override
-  String get fadeInOutEnable => 'Attiva Fade In/Out';
-
-  @override
-  String get fadeInOutSubtitle =>
-      'Dissolvenza graduale all\'avvio e alla pausa';
-
-  @override
-  String fadeDuration(int duration) {
-    return 'Durata dissolvenza: ${duration}ms';
-  }
 
   @override
   String get enableTranscoding => 'Abilita La Transcodifica';
@@ -1509,6 +1494,20 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get sectionVolumeNormalization =>
       'NORMALIZZAZIONE VOLUME (REPLAYGAIN)';
+
+  @override
+  String get sectionFadeInOut => 'FADE IN/OUT';
+
+  @override
+  String get fadeInOutEnable => 'Enable Fade In/Out';
+
+  @override
+  String get fadeInOutSubtitle => 'Smoothly fade audio when playing or pausing';
+
+  @override
+  String fadeDuration(int duration) {
+    return 'Fade Duration: ${duration}ms';
+  }
 
   @override
   String get replayGainModeOff => 'Off';

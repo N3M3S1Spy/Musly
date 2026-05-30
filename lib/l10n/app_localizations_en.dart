@@ -16,7 +16,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get emulatorNotAllowed =>
-      'This app cannot run on an emulator.\nPlease use a physical device.';
+      'This app cannot run on an emulator.\\nPlease use a physical device.';
 
   @override
   String get goodMorning => 'Good morning';
@@ -44,6 +44,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get favoritePlaylists => 'Favorite Playlists';
+
+  @override
+  String get sectionAlbums => 'Albums';
+
+  @override
+  String get sectionEPs => 'EPs';
+
+  @override
+  String get sectionSingles => 'Singles';
 
   @override
   String get madeForYou => 'Made For You';
@@ -110,15 +119,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get albums => 'Albums';
-
-  @override
-  String get sectionAlbums => 'Albums';
-
-  @override
-  String get sectionEPs => 'EPs';
-
-  @override
-  String get sectionSingles => 'Singles';
 
   @override
   String get artists => 'Artists';
@@ -644,20 +644,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sectionStreamingQuality => 'STREAMING QUALITY';
-
-  @override
-  String get sectionFadeInOut => 'FADE IN/OUT';
-
-  @override
-  String get fadeInOutEnable => 'Enable Fade In/Out';
-
-  @override
-  String get fadeInOutSubtitle => 'Smoothly fade audio when playing or pausing';
-
-  @override
-  String fadeDuration(int duration) {
-    return 'Fade Duration: ${duration}ms';
-  }
 
   @override
   String get enableTranscoding => 'Enable Transcoding';
@@ -1499,6 +1485,20 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sectionVolumeNormalization => 'VOLUME NORMALIZATION (REPLAYGAIN)';
+
+  @override
+  String get sectionFadeInOut => 'FADE IN/OUT';
+
+  @override
+  String get fadeInOutEnable => 'Enable Fade In/Out';
+
+  @override
+  String get fadeInOutSubtitle => 'Smoothly fade audio when playing or pausing';
+
+  @override
+  String fadeDuration(int duration) {
+    return 'Fade Duration: ${duration}ms';
+  }
 
   @override
   String get replayGainModeOff => 'Off';
