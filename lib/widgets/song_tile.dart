@@ -110,7 +110,11 @@ class SongTile extends StatelessWidget {
         builder: (context, radius, _) {
           return Stack(
             children: [
-              AlbumArtwork(coverArt: song.coverArt, size: 50),
+              AlbumArtwork(
+                coverArt: song.coverArt,
+                size: 50,
+                preserveAspectRatio: true,
+              ),
               if (isCurrentSong)
                 Positioned.fill(
                   child: Container(
