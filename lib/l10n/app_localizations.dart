@@ -1292,6 +1292,30 @@ abstract class AppLocalizations {
   /// **'STREAMING QUALITY'**
   String get sectionStreamingQuality;
 
+  /// Playback settings section header for fade in/out audio
+  ///
+  /// In en, this message translates to:
+  /// **'FADE IN/OUT'**
+  String get sectionFadeInOut;
+
+  /// Toggle label to enable fade in/out audio effect
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Fade In/Out'**
+  String get fadeInOutEnable;
+
+  /// Subtitle explaining fade in/out functionality
+  ///
+  /// In en, this message translates to:
+  /// **'Smoothly fade audio when playing or pausing'**
+  String get fadeInOutSubtitle;
+
+  /// Slider label showing fade duration in milliseconds
+  ///
+  /// In en, this message translates to:
+  /// **'Fade Duration: {duration}ms'**
+  String fadeDuration(int duration);
+
   /// No description provided for @enableTranscoding.
   ///
   /// In en, this message translates to:

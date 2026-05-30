@@ -450,8 +450,9 @@ class _SettingsPlaybackTabState extends State<SettingsPlaybackTab> {
   }
 
   Widget _buildFadeSection() {
+    final l10n = AppLocalizations.of(context)!;
     return _buildSection(
-      title: 'Fade In/Out',
+      title: l10n.sectionFadeInOut,
       children: [
         ListTile(
           contentPadding: const EdgeInsets.symmetric(
@@ -476,12 +477,12 @@ class _SettingsPlaybackTabState extends State<SettingsPlaybackTab> {
               size: 18,
             ),
           ),
-          title: const Text(
-            'Enable Fade In/Out',
-            style: TextStyle(fontSize: 16),
+          title: Text(
+            l10n.fadeInOutEnable,
+            style: const TextStyle(fontSize: 16),
           ),
           subtitle: Text(
-            'Smoothly fade audio when playing or pausing',
+            l10n.fadeInOutSubtitle,
             style: TextStyle(
               fontSize: 13,
               color: Theme.of(context).brightness == Brightness.dark
@@ -506,7 +507,7 @@ class _SettingsPlaybackTabState extends State<SettingsPlaybackTab> {
               vertical: 4,
             ),
             title: Text(
-              'Fade Duration (${_fadeDurationMs}ms)',
+              l10n.fadeDuration(_fadeDurationMs),
               style: const TextStyle(fontSize: 16),
             ),
             subtitle: Slider(

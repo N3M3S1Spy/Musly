@@ -630,6 +630,20 @@ class AppLocalizationsPl extends AppLocalizations {
   String get sectionStreamingQuality => 'STREAMING QUALITY';
 
   @override
+  String get sectionFadeInOut => 'FADE IN/OUT';
+
+  @override
+  String get fadeInOutEnable => 'Enable Fade In/Out';
+
+  @override
+  String get fadeInOutSubtitle => 'Smoothly fade audio when playing or pausing';
+
+  @override
+  String fadeDuration(int duration) {
+    return 'Fade Duration: ${duration}ms';
+  }
+
+  @override
   String get enableTranscoding => 'Enable Transcoding';
 
   @override

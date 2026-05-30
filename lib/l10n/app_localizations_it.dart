@@ -633,6 +633,21 @@ class AppLocalizationsIt extends AppLocalizations {
   String get sectionStreamingQuality => 'QUALITÀ DI STREAMING';
 
   @override
+  String get sectionFadeInOut => 'FADE IN/OUT';
+
+  @override
+  String get fadeInOutEnable => 'Attiva Fade In/Out';
+
+  @override
+  String get fadeInOutSubtitle =>
+      'Dissolvenza graduale all\'avvio e alla pausa';
+
+  @override
+  String fadeDuration(int duration) {
+    return 'Durata dissolvenza: ${duration}ms';
+  }
+
+  @override
   String get enableTranscoding => 'Abilita La Transcodifica';
 
   @override
