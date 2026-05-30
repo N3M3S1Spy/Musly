@@ -2648,7 +2648,14 @@ class PlayerProvider extends ChangeNotifier with WidgetsBindingObserver {
     if (_upnpService.onRendererLost == _onUpnpRendererLost) {
       _upnpService.onRendererLost = null;
     }
-    _audioHandler.customAction('dispose');
+    // Stop playback before disposing audio handler to prevent NPE on Android
+    _audioPlayer.stop().catchError((_) {});
+
+    // Dispose audio handler with error handling
+    _audioHandler.customAction('dispose').catchError((e) {
+      debugPrint('Error disposing audio handler: $e');
+    });
+
     try {
       _androidAutoService.dispose();
     } catch (_) {}
