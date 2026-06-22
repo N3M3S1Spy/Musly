@@ -49,6 +49,7 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 /// Checks if the app is running on an emulator/simulator
 Future<bool> _isRunningOnEmulator() async {
+  if (kDebugMode) return false;
   if (kIsWeb) return false;
   if (!Platform.isAndroid && !Platform.isIOS) return false;
 
@@ -127,14 +128,10 @@ class _EmulatorWarningScreen extends StatelessWidget {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Check if running on emulator (mobile only)
-  if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
-    final isEmulator = await _isRunningOnEmulator();
-    if (isEmulator) {
-      // Show emulator warning and don't load the actual app
-      runApp(const _EmulatorWarningScreen());
-      return;
-    }
+  final isEmulator = await _isRunningOnEmulator();
+  if (isEmulator) {
+    runApp(const _EmulatorWarningScreen());
+    return;
   }
 
   JustAudioMediaKit.ensureInitialized(linux: true, windows: false);
